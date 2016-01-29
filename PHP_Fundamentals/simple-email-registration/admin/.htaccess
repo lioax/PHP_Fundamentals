@@ -1,0 +1,14 @@
+# deny everyone but myself
+
+
+# allow from ::1 is for working locally
+# we can test this by echo $_SERVER['SERVER_ADDR']; in PHP
+# allow from 76.27.80.14 would be if we were working in production environment
+
+# Deny access to the files within the Admin directory from everyone - results in Forbidden error
+# Allow from my ip address 
+<Limit GET POST PUT>
+	order deny,allow
+	deny from all
+	allow from ::1
+</Limit>
